@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cita · @soyandreamoncho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #2a2620; }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Canvas Instagram 4:5 — 1080x1350 */
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #C9B8A0; /* fallback cálido si no carga la imagen */
+  }
+
+  /* Imagen editorial de fondo (placeholder cálido tipo Joelle Elizabeth).
+     En Canva se reemplaza por autofill field `imagen_fondo`. */
+  .imagen_fondo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  /* Velo cálido muy sutil para asegurar lectura de la estrella + handle.
+     NO es filtro oscuro pesado — solo +5% de greige translúcido. */
+  .velo {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(38,34,28,0.08) 0%, rgba(38,34,28,0) 30%, rgba(38,34,28,0) 70%, rgba(38,34,28,0.10) 100%);
+    z-index: 2;
+  }
+
+  /* Estrella de 4 puntas — firma visual de la marca.
+     Terracota sólido, esquina superior izquierda. */
+  .estrella {
+    position: absolute;
+    top: 72px;
+    left: 72px;
+    width: 36px;
+    height: 36px;
+    z-index: 3;
+  }
+
+  /* Etiqueta superior derecha — categoría del post */
+  .etiqueta_categoria {
+    position: absolute;
+    top: 82px;
+    right: 72px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #F4F1EB;
+    z-index: 3;
+    text-shadow: 0 1px 2px rgba(38,34,28,0.25);
+  }
+
+  /* Caja crema sólida — el corazón de la pieza.
+     Flotante en posición centro-low, padding generoso. */
+  .caja_cita {
+    position: absolute;
+    left: 88px;
+    right: 88px;
+    top: 50%;
+    transform: translateY(-46%);
+    background: #EDE7DA;
+    padding: 64px 72px 56px;
+    z-index: 4;
+  }
+
+  /* La cita — Fraunces serif, palabra clave en itálica terracota oscuro */
+  .cita {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 58px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: #26221C;
+  }
+  .cita em {
+    font-style: italic;
+    color: #8F4A22;
+  }
+
+  /* Autor / contexto — pequeño, abajo de la cita */
+  .autor {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6E675C;
+    margin-top: 38px;
+  }
+
+  /* Handle inferior — sobre la foto, color cream */
+  .handle {
+    position: absolute;
+    bottom: 60px;
+    left: 88px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #F4F1EB;
+    z-index: 3;
+    text-shadow: 0 1px 2px rgba(38,34,28,0.25);
+  }
+</style>
+</head>
+<body>
+
+<!--
+  LAYOUT 5 — CITA / TAKE
+  Sistema @soyandreamoncho v2 (editorial)
+  Formato: Instagram Post 4:5 (1080×1350)
+
+  Campos editables (autofill fields para Canva):
+    · imagen_fondo  (image)   → reemplazar con foto editorial cálida de tu biblioteca
+    · etiqueta_categoria (text) → ej: "TAKES", "ESTRATEGIA", "OPINIÓN"
+    · cita (text)             → la frase. Usar <em>palabra</em> para itálica terracota
+    · autor (text)            → ej: "ANDREA MONCHO · ESTRATEGIA"
+-->
+
+<div class="canvas">
+
+  <!-- Imagen editorial de fondo — placeholder mood Joelle Elizabeth -->
+  <img class="imagen_fondo"
+       src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1080&h=1350&fit=crop&q=85"
+       alt="Foto editorial cálida de fondo">
+
+  <div class="velo"></div>
+
+  <!-- Estrella 4 puntas terracota -->
+  <svg class="estrella" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0 L18.5 13.5 L32 16 L18.5 18.5 L16 32 L13.5 18.5 L0 16 L13.5 13.5 Z"
+          fill="#B5612F"/>
+  </svg>
+
+  <!-- Etiqueta categoría arriba derecha -->
+  <div class="etiqueta_categoria">Takes</div>
+
+  <!-- Caja crema flotante con la cita -->
+  <div class="caja_cita">
+    <p class="cita">"Pausar la campaña no baja el costo. <em>Apaga la señal.</em>"</p>
+    <p class="autor">Andrea Moncho · Estrategia</p>
+  </div>
+
+  <!-- Handle abajo izquierda -->
+  <div class="handle">@soyandreamoncho</div>
+
+</div>
+
+</body>
+</html>
